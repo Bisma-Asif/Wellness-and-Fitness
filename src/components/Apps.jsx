@@ -3,23 +3,6 @@ import SoulWhispersPDF from "../pdf/SoulWhispers-Brochure.pdf";
 import GymKeyPDF from "../pdf/GymKey-Brochure.pdf";
 
 export default function Apps() {
-  // 🔽 Download trigger function for Vite
-  const handleDownload = (file, filename) => {
-    fetch(file)
-      .then((res) => res.blob())
-      .then((blob) => {
-        const url = window.URL.createObjectURL(blob);
-        const link = document.createElement("a");
-        link.href = url;
-        link.download = filename;
-        document.body.appendChild(link);
-        link.click();
-        link.remove();
-        window.URL.revokeObjectURL(url);
-      })
-      .catch((err) => console.error("Download error:", err));
-  };
-
   return (
     <section
       id="apps"
@@ -36,7 +19,7 @@ export default function Apps() {
         </div>
 
         <div className="grid lg:grid-cols-2 gap-12">
-          {/* 🌸 SoulWhispers App Card */}
+          {/* SoulWhispers Section */}
           <div className="group relative p-10 rounded-3xl bg-white/40 backdrop-blur-sm border border-purple-200/30 hover:shadow-2xl hover:shadow-purple-200 transition-all duration-500 hover:-translate-y-2">
             <div className="flex items-start justify-between mb-6">
               <div className="w-16 h-16 rounded-2xl bg-gradient-to-br from-pink-400 to-purple-400 flex items-center justify-center shadow-lg shadow-pink-300">
@@ -68,27 +51,26 @@ export default function Apps() {
                 "Mood journaling with AI insights",
                 "Personalized providers",
                 "Seamless booking & check-in for consultation sessions",
-              ].map((text, index) => (
-                <div key={index} className="flex items-center gap-3 text-purple-800">
+              ].map((item, i) => (
+                <div key={i} className="flex items-center gap-3 text-purple-800">
                   <div className="w-2 h-2 rounded-full bg-gradient-to-r from-pink-500 to-purple-500"></div>
-                  <span>{text}</span>
+                  <span>{item}</span>
                 </div>
               ))}
             </div>
 
-            <button
-              onClick={() =>
-                handleDownload(SoulWhispersPDF, "SoulWhispers-Brochure.pdf")
-              }
+            <a
+              href={SoulWhispersPDF}
+              download="SoulWhispers-Brochure.pdf"
               className="group/btn w-full px-6 py-4 bg-gradient-to-r from-pink-500 to-purple-500 rounded-2xl font-semibold text-white shadow-lg shadow-pink-300 hover:shadow-xl hover:shadow-pink-400 transition-all duration-300 flex items-center justify-center gap-2"
             >
               <Download className="w-5 h-5" />
               Download SoulWhispers Brochure
               <ArrowRight className="w-5 h-5 group-hover/btn:translate-x-1 transition-transform" />
-            </button>
+            </a>
           </div>
 
-          {/* 💪 GymKey App Card */}
+          {/* GymKey Section */}
           <div className="group relative p-10 rounded-3xl bg-white/40 backdrop-blur-sm border border-purple-200/30 hover:shadow-2xl hover:shadow-purple-200 transition-all duration-500 hover:-translate-y-2">
             <div className="flex items-start justify-between mb-6">
               <div className="w-16 h-16 rounded-2xl bg-gradient-to-br from-blue-400 to-purple-400 flex items-center justify-center shadow-lg shadow-blue-300">
@@ -117,22 +99,23 @@ export default function Apps() {
                 "Workout tracking and performance analytics",
                 "Membership management for gym owners",
                 "Real-time class schedules and bookings",
-              ].map((text, index) => (
-                <div key={index} className="flex items-center gap-3 text-purple-800">
+              ].map((item, i) => (
+                <div key={i} className="flex items-center gap-3 text-purple-800">
                   <div className="w-2 h-2 rounded-full bg-gradient-to-r from-blue-500 to-purple-500"></div>
-                  <span>{text}</span>
+                  <span>{item}</span>
                 </div>
               ))}
             </div>
 
-            <button
-              onClick={() => handleDownload(GymKeyPDF, "GymKey-Brochure.pdf")}
+            <a
+              href={GymKeyPDF}
+              download="GymKey-Brochure.pdf"
               className="group/btn w-full px-6 py-4 bg-gradient-to-r from-blue-500 to-purple-500 rounded-2xl font-semibold text-white shadow-lg shadow-blue-300 hover:shadow-xl hover:shadow-blue-400 transition-all duration-300 flex items-center justify-center gap-2"
             >
               <Download className="w-5 h-5" />
               Download GymKey Brochure
               <ArrowRight className="w-5 h-5 group-hover/btn:translate-x-1 transition-transform" />
-            </button>
+            </a>
           </div>
         </div>
       </div>
