@@ -1,0 +1,58 @@
+.floating-bubble {
+  position: fixed;
+  width: 180px;
+  height: 180px;
+  pointer-events: none;
+  z-index: 9999;
+  top: -90px;
+  left: -90px;
+  mix-blend-mode: screen;
+}
+
+.bubble-inner {
+  width: 100%;
+  height: 100%;
+  border-radius: 50%;
+  background: radial-gradient(circle at 30% 30%, #0d1b85, #124bbe 40%, #457de7);
+  box-shadow:
+    0 0 35px rgba(50, 100, 246, 1),
+    0 0 70px rgba(50, 100, 246, 0.8),
+    inset 0 0 30px rgba(255, 255, 255, 0.5);
+  animation: pulse 1.5s ease-in-out infinite;
+  position: relative;
+  opacity: 0.9;
+}
+
+.bubble-shine {
+  position: absolute;
+  top: 15%;
+  left: 20%;
+  width: 60px;
+  height: 60px;
+  background: radial-gradient(circle, rgba(255, 255, 255, 1), transparent 50%);
+  border-radius: 50%;
+  animation: shimmer 1.5s ease-in-out infinite;
+  opacity: 1;
+}
+
+@keyframes pulse {
+  0%, 100% {
+    transform: scale(1);
+    opacity: 0.8;
+  }
+  50% {
+    transform: scale(1.2);
+    opacity: 1;
+  }
+}
+
+@keyframes shimmer {
+  0%, 100% {
+    opacity: 0.6;
+    transform: translate(0, 0) scale(0.8);
+  }
+  50% {
+    opacity: 1;
+    transform: translate(5px, 5px) scale(1.2);
+  }
+}
