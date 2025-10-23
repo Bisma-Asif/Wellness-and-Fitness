@@ -1,6 +1,7 @@
 import { ArrowRight } from 'lucide-react'
 import { useNavigate } from 'react-router-dom'
 import './VideoBackground.css'
+import video from '../videos/3327806-hd_1920_1080_24fps (1).mp4" type="video/mp4'
 
 export default function Hero() {
   const navigate = useNavigate()
@@ -26,7 +27,7 @@ export default function Hero() {
           playsInline
           className="video-background"
         >
-          <source src="/src/videos/3327806-hd_1920_1080_24fps (1).mp4" type="video/mp4" />
+          <source src="{video}" />
           Your browser does not support the video tag.
         </video>
       </div>
