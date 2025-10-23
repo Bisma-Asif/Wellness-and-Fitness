@@ -1,8 +1,15 @@
 import { Heart, Dumbbell, Download, ArrowRight } from "lucide-react";
-import SoulWhispersPDF from "../pdf/SoulWhispers-Brochure.pdf";
-import GymKeyPDF from "../pdf/GymKey-Brochure.pdf";
 
 export default function Apps() {
+  const handleDownload = (fileName) => {
+    const pdfPath = new URL(`../pdf/${fileName}`, import.meta.url).href;
+
+    const link = document.createElement("a");
+    link.href = pdfPath;
+    link.download = fileName;
+    link.click();
+  };
+
   return (
     <section
       id="apps"
@@ -20,7 +27,7 @@ export default function Apps() {
 
         <div className="grid lg:grid-cols-2 gap-12">
           {/* SoulWhispers Section */}
-          <div className="group relative p-10 rounded-3xl bg-white/40 backdrop-blur-sm border border-purple-200/30 hover:shadow-2xl hover:shadow-purple-200 transition-all duration-500 hover:-translate-y-2">
+          <div className="group relative p-10 rounded-3xl bg-white/40 backdrop-blur-sm border border-purple-200/30 hover:shadow-2xl hover:-translate-y-2 transition-all duration-500">
             <div className="flex items-start justify-between mb-6">
               <div className="w-16 h-16 rounded-2xl bg-gradient-to-br from-pink-400 to-purple-400 flex items-center justify-center shadow-lg shadow-pink-300">
                 <Heart className="w-8 h-8 text-white" />
@@ -39,39 +46,21 @@ export default function Apps() {
 
             <p className="text-purple-800 leading-relaxed mb-8">
               SoulWhispers is a mindfulness and emotional wellness app designed
-              to help users reconnect with their inner calm. Through guided
-              meditations, reflective journaling, and AI-powered mood tracking,
-              SoulWhispers nurtures mental clarity and emotional resilience in a
-              fast-paced world.
+              to help users reconnect with their inner calm.
             </p>
 
-            <div className="space-y-3 mb-8">
-              {[
-                "Telehealth and diagnostics",
-                "Mood journaling with AI insights",
-                "Personalized providers",
-                "Seamless booking & check-in for consultation sessions",
-              ].map((item, i) => (
-                <div key={i} className="flex items-center gap-3 text-purple-800">
-                  <div className="w-2 h-2 rounded-full bg-gradient-to-r from-pink-500 to-purple-500"></div>
-                  <span>{item}</span>
-                </div>
-              ))}
-            </div>
-
-            <a
-              href={SoulWhispersPDF}
-              download="SoulWhispers-Brochure.pdf"
-              className="group/btn w-full px-6 py-4 bg-gradient-to-r from-pink-500 to-purple-500 rounded-2xl font-semibold text-white shadow-lg shadow-pink-300 hover:shadow-xl hover:shadow-pink-400 transition-all duration-300 flex items-center justify-center gap-2"
+            <button
+              onClick={() => handleDownload("SoulWhispers-Brochure.pdf")}
+              className="w-full px-6 py-4 bg-gradient-to-r from-pink-500 to-purple-500 rounded-2xl font-semibold text-white shadow-lg flex items-center justify-center gap-2 hover:shadow-xl transition-all duration-300"
             >
               <Download className="w-5 h-5" />
               Download SoulWhispers Brochure
-              <ArrowRight className="w-5 h-5 group-hover/btn:translate-x-1 transition-transform" />
-            </a>
+              <ArrowRight className="w-5 h-5 group-hover:translate-x-1 transition-transform" />
+            </button>
           </div>
 
           {/* GymKey Section */}
-          <div className="group relative p-10 rounded-3xl bg-white/40 backdrop-blur-sm border border-purple-200/30 hover:shadow-2xl hover:shadow-purple-200 transition-all duration-500 hover:-translate-y-2">
+          <div className="group relative p-10 rounded-3xl bg-white/40 backdrop-blur-sm border border-purple-200/30 hover:shadow-2xl hover:-translate-y-2 transition-all duration-500">
             <div className="flex items-start justify-between mb-6">
               <div className="w-16 h-16 rounded-2xl bg-gradient-to-br from-blue-400 to-purple-400 flex items-center justify-center shadow-lg shadow-blue-300">
                 <Dumbbell className="w-8 h-8 text-white" />
@@ -87,35 +76,17 @@ export default function Apps() {
             </p>
 
             <p className="text-purple-800 leading-relaxed mb-8">
-              GymKey is your digital passport to fitness freedom. Whether you're
-              a gym owner or a fitness enthusiast, GymKey connects users with
-              partner gyms, tracks workouts, and simplifies access—all from a
-              single app.
+              GymKey is your digital passport to fitness freedom.
             </p>
 
-            <div className="space-y-3 mb-8">
-              {[
-                "Seamless check-in at partner gyms",
-                "Workout tracking and performance analytics",
-                "Membership management for gym owners",
-                "Real-time class schedules and bookings",
-              ].map((item, i) => (
-                <div key={i} className="flex items-center gap-3 text-purple-800">
-                  <div className="w-2 h-2 rounded-full bg-gradient-to-r from-blue-500 to-purple-500"></div>
-                  <span>{item}</span>
-                </div>
-              ))}
-            </div>
-
-            <a
-              href={GymKeyPDF}
-              download="GymKey-Brochure.pdf"
-              className="group/btn w-full px-6 py-4 bg-gradient-to-r from-blue-500 to-purple-500 rounded-2xl font-semibold text-white shadow-lg shadow-blue-300 hover:shadow-xl hover:shadow-blue-400 transition-all duration-300 flex items-center justify-center gap-2"
+            <button
+              onClick={() => handleDownload("GymKey-Brochure.pdf")}
+              className="w-full px-6 py-4 bg-gradient-to-r from-blue-500 to-purple-500 rounded-2xl font-semibold text-white shadow-lg flex items-center justify-center gap-2 hover:shadow-xl transition-all duration-300"
             >
               <Download className="w-5 h-5" />
               Download GymKey Brochure
-              <ArrowRight className="w-5 h-5 group-hover/btn:translate-x-1 transition-transform" />
-            </a>
+              <ArrowRight className="w-5 h-5 group-hover:translate-x-1 transition-transform" />
+            </button>
           </div>
         </div>
       </div>
