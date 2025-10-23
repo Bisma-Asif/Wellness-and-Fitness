@@ -4,7 +4,6 @@ import video2 from '../videos/floating-videos/3327806.mp4'
 import video3 from '../videos/floating-videos/3327959.mp4'
 import video4 from '../videos/floating-videos/4536085.mp4'
 import video5 from '../videos/floating-videos/4608975.mp4'
-
 export default function About() {
   const videoSources = [video1, video2, video3, video4, video5]
 
