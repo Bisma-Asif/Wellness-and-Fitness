@@ -2,12 +2,12 @@ import { Brain, Heart, Zap } from 'lucide-react'
 
 export default function About() {
   const videoSources = [
-    "../videos/floating videos/3209148-uhd_3840_2160_25fps.mp4",
-    "../videos/floating videos/3327806-hd_1920_1080_24fps (1).mp4",
-    "../videos/floating videos/3327959-hd_1920_1080_24fps.mp4",
-    "../videos/floating videos/4536085-hd_1280_720_50fps.mp4",
-    "../videos/floating videos/4608975-hd_1920_1080_25fps.mp4"
-  ]
+    "/videos/floating videos/3209148-uhd_3840_2160_25fps.mp4",
+    "/videos/floating videos/3327806-hd_1920_1080_24fps (1).mp4",
+    "/videos/floating videos/3327959-hd_1920_1080_24fps.mp4",
+    "/videos/floating videos/4536085-hd_1280_720_50fps.mp4",
+    "/videos/floating videos/4608975-hd_1920_1080_25fps.mp4"
+  ];
 
   return (
     <section id="about" className="py-24 bg-gradient-to-br from-purple-50 via-pink-50 to-blue-50">
@@ -30,9 +30,11 @@ export default function About() {
                       loop 
                       muted 
                       playsInline
+                      preload="auto"
                       className="w-full h-full object-cover"
                     >
                       <source src={src} type="video/mp4" />
+                      <source src={src.replace('.mp4', '.webm')} type="video/webm" />
                       Your browser does not support the video tag.
                     </video>
                   </div>
@@ -44,9 +46,11 @@ export default function About() {
                       loop 
                       muted 
                       playsInline
+                      preload="auto"
                       className="w-full h-full object-cover"
                     >
                       <source src={src} type="video/mp4" />
+                      <source src={src.replace('.mp4', '.webm')} type="video/webm" />
                       Your browser does not support the video tag.
                     </video>
                   </div>
@@ -100,5 +104,5 @@ export default function About() {
         </div>
       </div>
     </section>
-  )
+  );
 }
