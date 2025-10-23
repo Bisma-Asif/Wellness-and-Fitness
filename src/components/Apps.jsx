@@ -1,28 +1,30 @@
-import { Heart, Dumbbell, Download, ArrowRight } from 'lucide-react';
+import { Heart, Dumbbell, Download, ArrowRight } from "lucide-react";
 import SoulWhispersPDF from "../pdf/SoulWhispers-Brochure.pdf";
 import GymKeyPDF from "../pdf/GymKey-Brochure.pdf";
 
 export default function Apps() {
-
-  // ✅ Function to handle PDF download from src folder
-  const handleDownload = (file, fileName) => {
+  // 🔽 Download trigger function for Vite
+  const handleDownload = (file, filename) => {
     fetch(file)
       .then((res) => res.blob())
       .then((blob) => {
         const url = window.URL.createObjectURL(blob);
-        const a = document.createElement('a');
-        a.href = url;
-        a.download = fileName;
-        document.body.appendChild(a);
-        a.click();
-        a.remove();
+        const link = document.createElement("a");
+        link.href = url;
+        link.download = filename;
+        document.body.appendChild(link);
+        link.click();
+        link.remove();
         window.URL.revokeObjectURL(url);
       })
-      .catch((err) => console.error("Error downloading file:", err));
+      .catch((err) => console.error("Download error:", err));
   };
 
   return (
-    <section id="apps" className="py-24 bg-gradient-to-br from-purple-50 via-pink-50 to-blue-50">
+    <section
+      id="apps"
+      className="py-24 bg-gradient-to-br from-purple-50 via-pink-50 to-blue-50"
+    >
       <div className="max-w-7xl mx-auto px-6">
         <div className="text-center mb-20">
           <h2 className="text-4xl md:text-6xl font-bold text-purple-900 mb-4">
@@ -34,7 +36,7 @@ export default function Apps() {
         </div>
 
         <div className="grid lg:grid-cols-2 gap-12">
-          {/* SoulWhispers Section */}
+          {/* 🌸 SoulWhispers App Card */}
           <div className="group relative p-10 rounded-3xl bg-white/40 backdrop-blur-sm border border-purple-200/30 hover:shadow-2xl hover:shadow-purple-200 transition-all duration-500 hover:-translate-y-2">
             <div className="flex items-start justify-between mb-6">
               <div className="w-16 h-16 rounded-2xl bg-gradient-to-br from-pink-400 to-purple-400 flex items-center justify-center shadow-lg shadow-pink-300">
@@ -45,13 +47,19 @@ export default function Apps() {
               </span>
             </div>
 
-            <h3 className="text-3xl font-bold text-purple-900 mb-3">SoulWhispers</h3>
+            <h3 className="text-3xl font-bold text-purple-900 mb-3">
+              SoulWhispers
+            </h3>
             <p className="text-lg bg-gradient-to-r from-pink-600 to-purple-600 bg-clip-text text-transparent font-semibold mb-6">
               Your Pocket-Sized Wellness Companion
             </p>
 
             <p className="text-purple-800 leading-relaxed mb-8">
-              SoulWhispers is a mindfulness and emotional wellness app designed to help users reconnect with their inner calm. Through guided meditations, reflective journaling, and AI-powered mood tracking, SoulWhispers nurtures mental clarity and emotional resilience in a fast-paced world.
+              SoulWhispers is a mindfulness and emotional wellness app designed
+              to help users reconnect with their inner calm. Through guided
+              meditations, reflective journaling, and AI-powered mood tracking,
+              SoulWhispers nurtures mental clarity and emotional resilience in a
+              fast-paced world.
             </p>
 
             <div className="space-y-3 mb-8">
@@ -59,17 +67,19 @@ export default function Apps() {
                 "Telehealth and diagnostics",
                 "Mood journaling with AI insights",
                 "Personalized providers",
-                "Seamless booking & check-in for consultation sessions"
-              ].map((item, i) => (
-                <div key={i} className="flex items-center gap-3 text-purple-800">
+                "Seamless booking & check-in for consultation sessions",
+              ].map((text, index) => (
+                <div key={index} className="flex items-center gap-3 text-purple-800">
                   <div className="w-2 h-2 rounded-full bg-gradient-to-r from-pink-500 to-purple-500"></div>
-                  <span>{item}</span>
+                  <span>{text}</span>
                 </div>
               ))}
             </div>
 
             <button
-              onClick={() => handleDownload(SoulWhispersPDF, "SoulWhispers-Brochure.pdf")}
+              onClick={() =>
+                handleDownload(SoulWhispersPDF, "SoulWhispers-Brochure.pdf")
+              }
               className="group/btn w-full px-6 py-4 bg-gradient-to-r from-pink-500 to-purple-500 rounded-2xl font-semibold text-white shadow-lg shadow-pink-300 hover:shadow-xl hover:shadow-pink-400 transition-all duration-300 flex items-center justify-center gap-2"
             >
               <Download className="w-5 h-5" />
@@ -78,7 +88,7 @@ export default function Apps() {
             </button>
           </div>
 
-          {/* GymKey Section */}
+          {/* 💪 GymKey App Card */}
           <div className="group relative p-10 rounded-3xl bg-white/40 backdrop-blur-sm border border-purple-200/30 hover:shadow-2xl hover:shadow-purple-200 transition-all duration-500 hover:-translate-y-2">
             <div className="flex items-start justify-between mb-6">
               <div className="w-16 h-16 rounded-2xl bg-gradient-to-br from-blue-400 to-purple-400 flex items-center justify-center shadow-lg shadow-blue-300">
@@ -95,7 +105,10 @@ export default function Apps() {
             </p>
 
             <p className="text-purple-800 leading-relaxed mb-8">
-              GymKey is your digital passport to fitness freedom. Whether you're a gym owner or a fitness enthusiast, GymKey connects users with partner gyms, tracks workouts, and simplifies access—all from a single app.
+              GymKey is your digital passport to fitness freedom. Whether you're
+              a gym owner or a fitness enthusiast, GymKey connects users with
+              partner gyms, tracks workouts, and simplifies access—all from a
+              single app.
             </p>
 
             <div className="space-y-3 mb-8">
@@ -103,11 +116,11 @@ export default function Apps() {
                 "Seamless check-in at partner gyms",
                 "Workout tracking and performance analytics",
                 "Membership management for gym owners",
-                "Real-time class schedules and bookings"
-              ].map((item, i) => (
-                <div key={i} className="flex items-center gap-3 text-purple-800">
+                "Real-time class schedules and bookings",
+              ].map((text, index) => (
+                <div key={index} className="flex items-center gap-3 text-purple-800">
                   <div className="w-2 h-2 rounded-full bg-gradient-to-r from-blue-500 to-purple-500"></div>
-                  <span>{item}</span>
+                  <span>{text}</span>
                 </div>
               ))}
             </div>
