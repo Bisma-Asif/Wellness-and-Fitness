@@ -1,13 +1,12 @@
-import { Brain, Heart, Zap } from 'lucide-react'
+import { Brain, Heart, Zap } from 'lucide-react';
+import video1 from '../videos/floating videos/3209148-uhd_3840_2160_25fps.mp4'
+import video2 from '../videos/floating videos/3327806-hd_1920_1080_24fps (1).mp4'
+import video3 from '../videos/floating videos/3327959-hd_1920_1080_24fps.mp4'
+import video4 from '../videos/floating videos/4536085-hd_1280_720_50fps.mp4'
+import video5 from '../videos/floating videos/4608975-hd_1920_1080_25fps.mp4'
 
 export default function About() {
-  const videoSources = [
-    "/videos/floating videos/3209148-uhd_3840_2160_25fps.mp4",
-    "/videos/floating videos/3327806-hd_1920_1080_24fps (1).mp4",
-    "/videos/floating videos/3327959-hd_1920_1080_24fps.mp4",
-    "/videos/floating videos/4536085-hd_1280_720_50fps.mp4",
-    "/videos/floating videos/4608975-hd_1920_1080_25fps.mp4"
-  ];
+  const videoSources = [video1, video2, video3, video4, video5];
 
   return (
     <section id="about" className="py-24 bg-gradient-to-br from-purple-50 via-pink-50 to-blue-50">
@@ -19,38 +18,22 @@ export default function About() {
               What's Next
             </span>
           </h2>
-          
+
           <div className="mb-12 overflow-hidden">
             <div className="animate-marquee whitespace-nowrap">
               <div className="inline-block">
                 {videoSources.map((src, index) => (
                   <div key={`video-1-${index}`} className="inline-block mx-2 w-64 h-36 rounded-xl overflow-hidden shadow-lg transform transition-transform hover:scale-105">
-                    <video 
-                      autoPlay 
-                      loop 
-                      muted 
+                    <video
+                      autoPlay
+                      loop
+                      muted
                       playsInline
                       preload="auto"
                       className="w-full h-full object-cover"
+                      onError={(e) => console.error(`Error loading video: ${e.target.src}`)}
                     >
                       <source src={src} type="video/mp4" />
-                      <source src={src.replace('.mp4', '.webm')} type="video/webm" />
-                      Your browser does not support the video tag.
-                    </video>
-                  </div>
-                ))}
-                {videoSources.map((src, index) => (
-                  <div key={`video-2-${index}`} className="inline-block mx-2 w-64 h-36 rounded-xl overflow-hidden shadow-lg transform transition-transform hover:scale-105">
-                    <video 
-                      autoPlay 
-                      loop 
-                      muted 
-                      playsInline
-                      preload="auto"
-                      className="w-full h-full object-cover"
-                    >
-                      <source src={src} type="video/mp4" />
-                      <source src={src.replace('.mp4', '.webm')} type="video/webm" />
                       Your browser does not support the video tag.
                     </video>
                   </div>
@@ -58,7 +41,7 @@ export default function About() {
               </div>
             </div>
           </div>
-          
+
           <div className="w-24 h-1 bg-gradient-to-r from-purple-500 to-pink-500 mx-auto mb-8 rounded-full"></div>
         </div>
 
