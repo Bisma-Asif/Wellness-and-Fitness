@@ -1,8 +1,26 @@
 import { Heart, Dumbbell, Download, ArrowRight } from 'lucide-react';
 import SoulWhispersPDF from "../pdf/SoulWhispers-Brochure.pdf";
-import GymKey from "../pdf/GymKey-Brochure.pdf"
+import GymKeyPDF from "../pdf/GymKey-Brochure.pdf";
 
 export default function Apps() {
+
+  // ✅ Function to handle PDF download from src folder
+  const handleDownload = (file, fileName) => {
+    fetch(file)
+      .then((res) => res.blob())
+      .then((blob) => {
+        const url = window.URL.createObjectURL(blob);
+        const a = document.createElement('a');
+        a.href = url;
+        a.download = fileName;
+        document.body.appendChild(a);
+        a.click();
+        a.remove();
+        window.URL.revokeObjectURL(url);
+      })
+      .catch((err) => console.error("Error downloading file:", err));
+  };
+
   return (
     <section id="apps" className="py-24 bg-gradient-to-br from-purple-50 via-pink-50 to-blue-50">
       <div className="max-w-7xl mx-auto px-6">
@@ -10,7 +28,9 @@ export default function Apps() {
           <h2 className="text-4xl md:text-6xl font-bold text-purple-900 mb-4">
             Our Flagship Apps
           </h2>
-          <p className="text-xl text-purple-800">Experience wellness innovation at your fingertips</p>
+          <p className="text-xl text-purple-800">
+            Experience wellness innovation at your fingertips
+          </p>
         </div>
 
         <div className="grid lg:grid-cols-2 gap-12">
@@ -35,33 +55,27 @@ export default function Apps() {
             </p>
 
             <div className="space-y-3 mb-8">
-              <div className="flex items-center gap-3 text-purple-800">
-                <div className="w-2 h-2 rounded-full bg-gradient-to-r from-pink-500 to-purple-500"></div>
-                <span>Telehealth and diagnostics</span>
-              </div>
-              <div className="flex items-center gap-3 text-purple-800">
-                <div className="w-2 h-2 rounded-full bg-gradient-to-r from-pink-500 to-purple-500"></div>
-                <span>Mood journaling with AI insights</span>
-              </div>
-              <div className="flex items-center gap-3 text-purple-800">
-                <div className="w-2 h-2 rounded-full bg-gradient-to-r from-pink-500 to-purple-500"></div>
-                <span>Personalized providers</span>
-              </div>
-              <div className="flex items-center gap-3 text-purple-800">
-                <div className="w-2 h-2 rounded-full bg-gradient-to-r from-pink-500 to-purple-500"></div>
-                <span>Seamless booking & check-in for consultation sessions</span>
-              </div>
+              {[
+                "Telehealth and diagnostics",
+                "Mood journaling with AI insights",
+                "Personalized providers",
+                "Seamless booking & check-in for consultation sessions"
+              ].map((item, i) => (
+                <div key={i} className="flex items-center gap-3 text-purple-800">
+                  <div className="w-2 h-2 rounded-full bg-gradient-to-r from-pink-500 to-purple-500"></div>
+                  <span>{item}</span>
+                </div>
+              ))}
             </div>
 
-            <a 
-              href={SoulWhispersPDF} // Use the correct public path
-              download="SoulWhispers-Brochure.pdf"
+            <button
+              onClick={() => handleDownload(SoulWhispersPDF, "SoulWhispers-Brochure.pdf")}
               className="group/btn w-full px-6 py-4 bg-gradient-to-r from-pink-500 to-purple-500 rounded-2xl font-semibold text-white shadow-lg shadow-pink-300 hover:shadow-xl hover:shadow-pink-400 transition-all duration-300 flex items-center justify-center gap-2"
             >
               <Download className="w-5 h-5" />
               Download SoulWhispers Brochure
               <ArrowRight className="w-5 h-5 group-hover/btn:translate-x-1 transition-transform" />
-            </a>
+            </button>
           </div>
 
           {/* GymKey Section */}
@@ -85,33 +99,27 @@ export default function Apps() {
             </p>
 
             <div className="space-y-3 mb-8">
-              <div className="flex items-center gap-3 text-purple-800">
-                <div className="w-2 h-2 rounded-full bg-gradient-to-r from-blue-500 to-purple-500"></div>
-                <span>Seamless check-in at partner gyms</span>
-              </div>
-              <div className="flex items-center gap-3 text-purple-800">
-                <div className="w-2 h-2 rounded-full bg-gradient-to-r from-blue-500 to-purple-500"></div>
-                <span>Workout tracking and performance analytics</span>
-              </div>
-              <div className="flex items-center gap-3 text-purple-800">
-                <div className="w-2 h-2 rounded-full bg-gradient-to-r from-blue-500 to-purple-500"></div>
-                <span>Membership management for gym owners</span>
-              </div>
-              <div className="flex items-center gap-3 text-purple-800">
-                <div className="w-2 h-2 rounded-full bg-gradient-to-r from-blue-500 to-purple-500"></div>
-                <span>Real-time class schedules and bookings</span>
-              </div>
+              {[
+                "Seamless check-in at partner gyms",
+                "Workout tracking and performance analytics",
+                "Membership management for gym owners",
+                "Real-time class schedules and bookings"
+              ].map((item, i) => (
+                <div key={i} className="flex items-center gap-3 text-purple-800">
+                  <div className="w-2 h-2 rounded-full bg-gradient-to-r from-blue-500 to-purple-500"></div>
+                  <span>{item}</span>
+                </div>
+              ))}
             </div>
 
-            <a 
-              href={GymKey} 
-              download="GymKey-Brochure.pdf"
+            <button
+              onClick={() => handleDownload(GymKeyPDF, "GymKey-Brochure.pdf")}
               className="group/btn w-full px-6 py-4 bg-gradient-to-r from-blue-500 to-purple-500 rounded-2xl font-semibold text-white shadow-lg shadow-blue-300 hover:shadow-xl hover:shadow-blue-400 transition-all duration-300 flex items-center justify-center gap-2"
             >
               <Download className="w-5 h-5" />
               Download GymKey Brochure
               <ArrowRight className="w-5 h-5 group-hover/btn:translate-x-1 transition-transform" />
-            </a>
+            </button>
           </div>
         </div>
       </div>
