@@ -27,7 +27,7 @@ export default function Hero() {
           playsInline
           className="video-background"
         >
-          <source src="{video}" />
+          <source src={video}/>
           Your browser does not support the video tag.
         </video>
       </div>
