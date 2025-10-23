@@ -3,10 +3,10 @@ import { Brain, Heart, Zap } from 'lucide-react'
 export default function About() {
   const videoSources = [
     "../videos/floating-videos/3209148.mp4",
-    "/videos/floating-videos/3327806.mp4",
-    "/videos/floating-videos/3327959.mp4",
-    "/videos/floating-videos/4536085.mp4",
-    "/videos/floating-videos/4608975.mp4"
+    "../videos/floating-videos/3327806.mp4",
+    "../videos/floating-videos/3327959.mp4",
+    "../videos/floating-videos/4536085.mp4",
+    "../videos/floating-videos/4608975.mp4"
   ]
 
   return (
