@@ -1,7 +1,8 @@
 import { Brain, Heart, Zap } from 'lucide-react'
+import './About.css' // we'll add this next
 
 export default function About() {
- 
+  // ✅ Correct way to import videos from src (Vite-safe)
   const videoSources = [
     new URL('../videos/floating-videos/3209148.mp4', import.meta.url).href,
     new URL('../videos/floating-videos/3327806.mp4', import.meta.url).href,
@@ -16,7 +17,7 @@ export default function About() {
       className="py-24 bg-gradient-to-br from-purple-50 via-pink-50 to-blue-50"
     >
       <div className="max-w-7xl mx-auto px-6">
-        {/* Header */}
+        {/* Heading */}
         <div className="text-center mb-16">
           <h2 className="text-4xl md:text-6xl font-bold text-purple-900 mb-6">
             Where Wellness Meets{' '}
@@ -25,35 +26,32 @@ export default function About() {
             </span>
           </h2>
 
-          {/* Scrolling video marquee */}
-          <div className="mb-12 overflow-hidden">
-            <div className="animate-marquee whitespace-nowrap">
-              <div className="inline-block">
-                {videoSources.concat(videoSources).map((src, index) => (
-                  <div
-                    key={index}
-                    className="inline-block mx-2 w-64 h-36 rounded-xl overflow-hidden shadow-lg transform transition-transform hover:scale-105"
-                  >
-                    <video
-                      autoPlay
-                      loop
-                      muted
-                      playsInline
-                      className="w-full h-full object-cover"
-                    >
-                      <source src={src} type="video/mp4" />
-                      Your browser does not support the video tag.
-                    </video>
-                  </div>
-                ))}
-              </div>
+          {/* ✅ Scrolling video section */}
+          <div className="marquee-wrapper mb-12 overflow-hidden">
+            <div className="marquee-content whitespace-nowrap">
+              {videoSources.concat(videoSources).map((src, index) => (
+                <div
+                  key={index}
+                  className="inline-block mx-2 w-64 h-36 rounded-xl overflow-hidden shadow-lg transform transition-transform hover:scale-105"
+                >
+                  <video
+                    src={src}
+                    autoPlay
+                    loop
+                    muted
+                    playsInline
+                    preload="auto"
+                    className="w-full h-full object-cover"
+                  />
+                </div>
+              ))}
             </div>
           </div>
 
           <div className="w-24 h-1 bg-gradient-to-r from-purple-500 to-pink-500 mx-auto mb-8 rounded-full"></div>
         </div>
 
-        {/* Description */}
+        {/* Text Content */}
         <div className="max-w-4xl mx-auto mb-16 space-y-6">
           <p className="text-lg md:text-xl text-purple-800 leading-relaxed text-center bg-white/30 backdrop-blur-sm p-6 rounded-2xl border border-purple-200/30">
             At Wellnex Systems, we believe the future of health and fitness lies
@@ -67,7 +65,7 @@ export default function About() {
           </p>
         </div>
 
-        {/* 3 feature cards */}
+        {/* Feature cards */}
         <div className="grid md:grid-cols-3 gap-8 mt-20">
           <div className="group p-8 rounded-3xl bg-white/40 backdrop-blur-sm border border-purple-200/30 hover:shadow-xl hover:shadow-purple-200 transition-all duration-300 hover:-translate-y-2">
             <div className="w-14 h-14 rounded-2xl bg-gradient-to-br from-purple-500 to-pink-500 flex items-center justify-center mb-6 group-hover:scale-110 transition-transform">
