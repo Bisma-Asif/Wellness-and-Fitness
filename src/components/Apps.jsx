@@ -1,8 +1,4 @@
-import { Heart, Dumbbell, Download, ArrowRight } from 'lucide-react';
-
-
-import SoulWhispersBrochure from '../pdf/SoulWhispers-Brochure.pdf';
-import GymKeyBrochure from '../pdf/GymKey-Brochure.pdf';
+import { Heart, Dumbbell, Download, ArrowRight } from 'lucide-react'
 
 export default function Apps() {
   return (
@@ -54,8 +50,8 @@ export default function Apps() {
               </div>
             </div>
 
-            <a
-              href={SoulWhispersBrochure} // Use the imported file here
+            <a 
+              href="/src/pdf/SoulWhispers-Brochure (1).pdf" 
               download="SoulWhispers-Brochure.pdf"
               className="group/btn w-full px-6 py-4 bg-gradient-to-r from-pink-500 to-purple-500 rounded-2xl font-semibold text-white shadow-lg shadow-pink-300 hover:shadow-xl hover:shadow-pink-400 transition-all duration-300 flex items-center justify-center gap-2"
             >
@@ -103,8 +99,8 @@ export default function Apps() {
               </div>
             </div>
 
-            <a
-              href={GymKeyBrochure} // Use the imported file here
+            <a 
+              href="/src/pdf/GymKey-Brochure (1).pdf" 
               download="GymKey-Brochure.pdf"
               className="group/btn w-full px-6 py-4 bg-gradient-to-r from-blue-500 to-purple-500 rounded-2xl font-semibold text-white shadow-lg shadow-blue-300 hover:shadow-xl hover:shadow-blue-400 transition-all duration-300 flex items-center justify-center gap-2"
             >
@@ -116,5 +112,5 @@ export default function Apps() {
         </div>
       </div>
     </section>
-  );
+  )
 }
