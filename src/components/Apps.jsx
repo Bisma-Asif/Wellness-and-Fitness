@@ -51,7 +51,7 @@ export default function Apps() {
             </div>
 
             <a 
-              href="../pdf/SoulWhispers-Brochure (1).pdf" 
+              href="/pdf/SoulWhispers-Brochure (1).pdf" 
               download="SoulWhispers-Brochure.pdf"
               className="group/btn w-full px-6 py-4 bg-gradient-to-r from-pink-500 to-purple-500 rounded-2xl font-semibold text-white shadow-lg shadow-pink-300 hover:shadow-xl hover:shadow-pink-400 transition-all duration-300 flex items-center justify-center gap-2"
             >
@@ -100,7 +100,7 @@ export default function Apps() {
             </div>
 
             <a 
-              href="../pdf/GymKey-Brochure (1).pdf" 
+              href="/pdf/GymKey-Brochure (1).pdf" 
               download="GymKey-Brochure.pdf"
               className="group/btn w-full px-6 py-4 bg-gradient-to-r from-blue-500 to-purple-500 rounded-2xl font-semibold text-white shadow-lg shadow-blue-300 hover:shadow-xl hover:shadow-blue-400 transition-all duration-300 flex items-center justify-center gap-2"
             >
