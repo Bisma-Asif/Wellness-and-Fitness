@@ -2,11 +2,11 @@ import { Brain, Heart, Zap } from 'lucide-react'
 
 export default function About() {
   const videoSources = [
-    "./videos/floating videos/3209148-uhd_3840_2160_25fps.mp4",
-    "./videos/floating videos/3327806-hd_1920_1080_24fps (1).mp4",
-    "./videos/floating videos/3327959-hd_1920_1080_24fps.mp4",
-    "./videos/floating videos/4536085-hd_1280_720_50fps.mp4",
-    "./videos/floating videos/4608975-hd_1920_1080_25fps.mp4"
+    "../videos/floating videos/3209148-uhd_3840_2160_25fps.mp4",
+    "../videos/floating videos/3327806-hd_1920_1080_24fps (1).mp4",
+    "../videos/floating videos/3327959-hd_1920_1080_24fps.mp4",
+    "../videos/floating videos/4536085-hd_1280_720_50fps.mp4",
+    "../videos/floating videos/4608975-hd_1920_1080_25fps.mp4"
   ]
 
   return (
